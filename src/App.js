@@ -17,7 +17,7 @@ class App extends Component {
       selectedVideo: ''
     }
     this.searchVideo = this.searchVideo.bind(this);
-    this.searchVideo('ReactJS');
+    this.selectVideo = this.selectVideo.bind(this);
   }
 
   searchVideo(response){
@@ -29,6 +29,10 @@ class App extends Component {
     });
   }
 
+  selectVideo(response) {
+    this.setState({ selectedVideo: response });
+  }
+
   render() {
     return (
       <div className="App">
@@ -37,9 +41,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to YouTube</h1>
         </header>
         <div className="container">
-          <SearchBar />
+          <SearchBar search={this.searchVideo} />
           <VideoDetail video={this.state.selectedVideo} />
-          <VideoList  videos={this.state.videos} />
+          <VideoList  videos={this.state.videos} selected={this.selectVideo} />
         </div>
       </div>
     );

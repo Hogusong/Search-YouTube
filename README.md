@@ -137,6 +137,13 @@ my-app/
     index.html
     favicon.ico
   src/
+    components/
+      search-bar.js
+      video-detail.js
+      video-list-item.js
+      video-list.js
+    css/
+      style.css
     App.css
     App.js
     App.test.js

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const VideoDetail = (props) => {
-  let url = ''
-  if (props.video) {
-    url = `https://www.youtube.com/embed/${props.video.id.videoId}`;
-  } else {
-    return null;
+  if (!props.video) {
+    return <h2>Enter keyword to search . . .</h2>;
   }
+
+  const url = `https://www.youtube.com/embed/${props.video.id.videoId}`;
+
   return (
     <div className="video-detail">
       <div className="video">

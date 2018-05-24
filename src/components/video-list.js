@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import VideoListItem from './video-list-item';
 
-class VideoList extends Component {
-  renderList() {
-    const list = []
-    for (let i=0; i < 5; i++){
-      list.push(<li>Video {i}</li>)
-    }
+const VideoList = ({ videos, selected }) => {
+  function renderList() {
+    const list = videos.map(video => 
+      <VideoListItem key={video.etag} video={video} 
+          selected={selected}/>);
     return list;
   }
 
-  render() {
-    return (
-      <div className="video-list">
-        <dl className="videos">
-          {this.renderList()}
-        </dl>
-      </div>
-    );
-  }
+  return (
+    <ul className="video-list">
+      {renderList()}
+    </ul>
+  );
 }
 
 export default VideoList;

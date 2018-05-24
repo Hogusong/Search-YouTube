@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class VideoListItem extends Component {
-  render() {
-    return (
-      <div className="video-list-item">
-        Video List Item Here
+const VideoListItem = ({ video, selected }) => {
+  return (
+    <li key={video.id.videoId}>
+      <div className="video-list-item"
+        onClick={() => selected(video)}>
+        <div><img src={video.snippet.thumbnails.default.url} /></div>
+        <p>{video.snippet.description}</p>
       </div>
-    );
-  }
+    </li>
+  );
 }
 
 export default VideoListItem;
