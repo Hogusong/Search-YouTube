@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import YTSearch from 'youtube-api-search';
 import logo from './logo.svg';
 import './css/style.css';
 
@@ -6,7 +7,28 @@ import SearchBar from './components/search-bar';
 import VideoDetail from './components/video-detail';
 import VideoList from './components/video-list';
 
+const API_KEY = 'AIzaSyDHF38rBvx5gIUlMKjF7JLLn11HKuZfgzg';//to access youtube video
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      videos: [],
+      selectedVideo: ''
+    }
+    this.searchVideo = this.searchVideo.bind(this);
+    this.searchVideo('ReactJS');
+  }
+
+  searchVideo(response){
+    YTSearch({key: API_KEY, term: response}, (videos) => {
+      this.setState({
+        videos: videos,
+        selectedVideo: videos[0]
+       });
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -16,8 +38,8 @@ class App extends Component {
         </header>
         <div className="container">
           <SearchBar />
-          <VideoDetail />
-          <VideoList  />
+          <VideoDetail video={this.state.selectedVideo} />
+          <VideoList  videos={this.state.videos} />
         </div>
       </div>
     );

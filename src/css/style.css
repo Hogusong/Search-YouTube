@@ -9,9 +9,14 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 120px;
   padding: 20px;
   color: white;
+}
+
+.App-header h1 {
+  font-size: 26px;
+  margin-top: 5px;
 }
 
 .container {
@@ -51,16 +56,32 @@
 
 .video-detail {
   float: left;
-  width: 65vw;
+  width: 63vw;
+  padding: 0 3.5vw;
 }
 
 .video-list {
-  float: right;
+  float: left;
   display: grid;
   grid-template-columns: 1fr;
-  width: 30vw;
+  width: 28vw;
+  margin: 0;
 }
 
+.video iframe {
+  width:100%;
+  height: 40vw;
+}
+
+.video-list dl {
+  list-style: none;
+}
+
+.video-list li {
+  margin-bottom: 10px;
+  width: 26vw;
+  background: gray;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
