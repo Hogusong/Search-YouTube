@@ -2,7 +2,7 @@ import React from 'react';
 
 const VideoDetail = (props) => {
   if (!props.video) {
-    return <h2>Enter keyword to search . . .</h2>;
+    return <h2 id="search-memo">Enter keyword to search . . .</h2>;
   }
 
   const url = `https://www.youtube.com/embed/${props.video.id.videoId}`;

@@ -42,8 +42,10 @@ class App extends Component {
         </header>
         <div className="container">
           <SearchBar search={this.searchVideo} />
-          <VideoDetail video={this.state.selectedVideo} />
-          <VideoList  videos={this.state.videos} selected={this.selectVideo} />
+          <div className="about-video">
+            <VideoDetail video={this.state.selectedVideo} />
+            <VideoList  videos={this.state.videos} selected={this.selectVideo} />
+          </div>
         </div>
       </div>
     );
